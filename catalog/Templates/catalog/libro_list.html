@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+    {% block title %}<title>Lista Libros</title>{% endblock %}
+{% block content %}
+    <h1>Lista de Libros Disponibles</h1>
+    {% if lista_libros %}
+        <ul>
+            {% for libro in lista_libros %}
+                <li>
+                    <a href="{{ libro.get_absolute_url }}">{{ libro.titulo }}</a> ({{libro.autor}})
+                </li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>No existen libros disponibles</p>
+    {% endif %}
+{% endblock %}

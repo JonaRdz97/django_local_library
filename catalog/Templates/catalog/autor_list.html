@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+    {% block title %}<title>Lista Autores</title>{% endblock %}
+{% block content %}
+    <h1>Lista de Autores Disponibles</h1>
+    {% if lista_autor %}
+        <ul>
+            {% for autor in lista_autor %}
+                <li>
+                    <a href="{{ autor.get_absolute_url }}">{{ autor.apellido }} , {{ autor.nombre}} ({{autor.fecha_nacimiento}})</a>
+                </li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>No existen autores disponibles</p>
+    {% endif %}
+{% endblock %}

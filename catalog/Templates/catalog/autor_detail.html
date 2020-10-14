@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h1>{{ autor.apellido }} {{autor.nombre}}</h1>
+  <h3>{{ autor.fecha_nacimiento }}</h3>
+
+  <div style="margin-left:20px;margin-top:20px">
+    <h4>Libros</h4>
+
+    {% for libro in autor.libro_set.all %}
+    <hr>
+
+    <p><strong>Libro:</strong> <a href="{% url 'detalle-libro' libro.id %}">{{ libro.titulo }}</a></p>
+    <p><strong>Resumen:</strong> {{libro.resumen}}</p>
+    {% endfor %}
+  </div>
+{% endblock %}
